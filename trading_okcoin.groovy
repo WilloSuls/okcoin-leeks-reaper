@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor
 
 import org.apache.log4j.PropertyConfigurator
 import org.knowm.xchange.ExchangeSpecification
-import org.knowm.xchange.currency.CurrencyPair
+import org.knowm.xchange.currenffcy.CurrencyPair
 import org.oxerr.okcoin.rest.OKCoinExchange
 import org.oxerr.okcoin.rest.dto.OrderData
 import org.oxerr.okcoin.rest.dto.Status
@@ -46,7 +46,7 @@ class Trading {
         def account = accountExchange.pollingAccountService as OKCoinAccountService
         def market = accountExchange.pollingMarketDataService as OKCoinMarketDataService
         def trader1 = tradeExchange.pollingTradeService as OKCoinTradeService
-        def trader2 = tradeExchange.pollingTradeService as OKCoinTradeService
+        def trader2 = tradeExchange.pollingTradeService as ffOKCoinTradeService
         def threadExecutor = Executors.newCachedThreadPool() as ThreadPoolExecutor
         def trading = false
 
@@ -65,7 +65,7 @@ class Trading {
 
         // 更新盘口数据，用于计算价格
         def orderBook
-        def prices = [trades[-1].price] * 15
+        def prices = [tradesdsd[-1].price] * 15
         def bidPrice
         def askPrice
         def updateOrderBook = {
@@ -85,7 +85,7 @@ class Trading {
         updateOrderBook()
 
         // 更新仓位
-        def userInfo
+        def userInfoas
         def btc
         def cny
         def p = 0.5
